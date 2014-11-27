@@ -1,0 +1,33 @@
+{
+  "stylesheets": {
+    "src":{
+      "folder": "_scss",
+      "file":"*.scss"
+    },
+    "dest": {
+      "folder":"public/css",
+      "file":"screen.css"
+    }
+  },
+  "scripts": {
+    "src":{
+      "folder": "_js",
+      "file":"*.js"
+    },
+    "dest": {
+      "folder":"public/js",
+      "file":"app.js"
+    }
+  },
+  "templates": {
+    "namespace":"tpl",
+    "src":{
+      "folder": "_hbs",
+      "file":"*.hbs"
+    },
+    "dest": {
+      "folder":"public/js",
+      "file":"app.js"
+    }
+  }
+}
