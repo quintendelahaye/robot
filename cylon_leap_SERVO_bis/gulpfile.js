@@ -4,7 +4,6 @@ var gulp = require("gulp");
 var es = require("event-stream");
 var config = require('./config.json');
 
-
 var plugins = require("gulp-load-plugins")({
   pattern: ['gulp-*', 'gulp.*'],
   replaceString: /\bgulp[\-.]/, // zorgt ervoor dat je plugins kan aanspreken zonder de gulp-prefix en camelCased
@@ -12,34 +11,6 @@ var plugins = require("gulp-load-plugins")({
 
 function getFilePath(target,type){
   return config[type][target].folder + "/" + config[type][target].file;
-}
-
-gulp.task('stylesheets', function() {
-  return gulp.src(getFilePath("src","stylesheets"))
-              .pipe(plugins.scssLint({
-              	'config': '.scss-lint.yml',
-            		})
-              )
-              .pipe(plugins.compass({
-                css: config.stylesheets.dest.folder,
-                sass: config.stylesheets.src.folder,
-              }))
-							.pipe(plugins.autoprefixer({ // maakt automatisch vendorprefixes
-		            browsers: ['last 2 versions','ie 9'],
-		            cascade: false
-							}))
-              .pipe(plugins.util.env.type === 'production' ? plugins.minifyCss() : plugins.util.noop())
-              .pipe(gulp.dest(config.stylesheets.dest.folder)); // in de config.json staan paden, en deze worden gebruikt om files te maken
-});
-
-function handlebars(){
-  return gulp.src(getFilePath("src","templates"))
-              .pipe(plugins.handlebars())
-              .pipe(plugins.wrap('Handlebars.template(<%= contents %>)'))
-              .pipe(plugins.declare({
-                namespace: config.templates.namespace,
-                noRedeclare: true
-              }));
 }
 
 function jshint(){
@@ -61,8 +32,6 @@ gulp.task("scripts",function(){
 });
 
 gulp.task('watch', function() {
-  gulp.watch(getFilePath("src","stylesheets"), ['stylesheets']);
-  gulp.watch(getFilePath("src","templates"), ['scripts']);
   gulp.watch(getFilePath("src","scripts"), ['scripts']);
 });
 
