@@ -1,0 +1,18 @@
+{
+  "name": "testje",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cylon": "^0.21.1",
+    "cylon-firmata": "^0.18.0",
+    "cylon-gpio": "^0.21.0",
+    "cylon-i2c": "^0.18.0",
+    "cylon-leapmotion": "^0.16.0"
+  }
+}
