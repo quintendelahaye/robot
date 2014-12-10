@@ -1,35 +1,33 @@
 {
   "stylesheets": {
     "src":{
-      "folder": "./_scss",
-      "file":"**/*.scss"
+      "folder": "_scss",
+      "file":"*.scss"
     },
     "dest": {
-      "folder":"./public/css",
+      "folder":"public/css",
       "file":"screen.css"
-    }
-  },
-  "fonts": {
-    "dest": {
-      "folder":"./public/fonts"
     }
   },
   "scripts": {
     "src":{
-      "folder": "./_js",
-      "file": "*.js"
+      "folder": "_js",
+      "file":"*.js"
     },
     "dest": {
-      "folder":"./public/js"
+      "folder":"public/js",
+      "file":"app.js"
     }
   },
-  "vendor": {
-    "src": {
-      "folder": "./bower_components",
-      "file": "**"
+  "templates": {
+    "namespace":"tpl",
+    "src":{
+      "folder": "_hbs",
+      "file":"*.hbs"
     },
     "dest": {
-      "file": "vendor.js"
+      "folder":"public/js",
+      "file":"app.js"
     }
   }
 }
